@@ -9,15 +9,39 @@
 <body>
     <form name="frm_dados" action="processa-dados-form.php" method="POST">
 
-    Nome: <input type="text" name="nome"/> <br>
-    Idade: <input type="texto" name="idade"/> <br>
-    Telefone: <input type="tel" name="telefone" id="telefone"> <br>
-    Sexo: <input type="radio" name="sexo" value="feminino"> Feminino <input type="radio" name="sexo" value="feminino"> Masculino <br>
-    Interesses: <input type="checkbox" name="int" id="" value="java"> Java <input type="checkbox" name="int" value="bd"> Banco de dados 
-    <input type="checkbox" name="int" value="php"> PHP <input type="checkbox" name="int" value="js"> JavaScript 
-    <input type="checkbox" name="int" value="html"> HTML/CSS <br>
-    Foto: <input type="file" name="foto" id=""> <br>
-    <input type="submit" name="btn_enviar" value="Enviar Dados"/> <br>
+        Nome: 
+        <input type="text" name="nome"/> 
+        <br>
+        Idade: 
+        <input type="texto" name="idade"/>
+        <br>
+        Telefone: 
+        <input type="tel" name="telefone" id="telefone"> 
+        <br> 
+        <br>
+
+        Sexo: 
+        <input type="radio" name="sexo" value="feminino"> Feminino                 <input type="radio" name="sexo" value="feminino"> Masculino 
+        <br> 
+        <br>
+
+        Interesses: 
+        <input type="checkbox" name="interesses[]" value="JAVA"> Java 
+        <input type="checkbox" name="interesses[]" value="BD"> Banco de dados 
+        <br>
+        <input type="checkbox" name="interesses[]" value="PHP"> PHP 
+        <input type="checkbox" name="interesses[]" value="JS"> JavaScript 
+        <input type="checkbox" name="interesses[]" value="HTML_CSS"> HTML/CSS
+        <br> 
+        <br>
+
+        Foto: 
+        <input type="file" name="foto_perfil" id=""> 
+        <br> 
+        <br>
+
+        <input type="submit" name="btn_enviar" value="Enviar Dados"/>
+        <br>
 
     </form>    
 </body>
