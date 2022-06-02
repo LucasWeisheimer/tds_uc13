@@ -7,12 +7,15 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="../controller/login_controller.php" method="post">
+    <form action="../controller/login_controller.php?acao=login" method="post">
         Email <input type="text" name="email_login" id="user_login">
         <br>
         Password <input type="text" name="password_login" id="password_login">
         <br>
         <input type="submit" value="Login">
+
     </form>
+    <br>
+    <a href="user_create_view.php">Novo Cadastro</a>
 </body>
 </html>
