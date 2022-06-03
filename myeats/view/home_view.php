@@ -1,4 +1,4 @@
-<?php
+<?php //http://localhost:8080/myeats/view/
 
     // vai ser utilizado para proteger a página
     require_once '../util/check_session.php';
