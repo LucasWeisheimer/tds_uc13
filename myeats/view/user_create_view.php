@@ -12,7 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="../controller/user_controller.php">
+    <form method="post" action="../controller/user_controller.php?acao=create">
         Nome: <input type="text" name="nome" id="nome"/> <br>
         Endereço: <input type="text" name="endereco" id="endereco"/><br>
         Email: <input type="text" name="email" id="email"/><br>

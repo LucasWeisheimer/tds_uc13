@@ -14,8 +14,15 @@
             $result = $stmt->execute(["name"=>$name, "email"=>$email, "password"=>sha1($password), "address"=>$address]); // nome entre aspas precisa ser o mesmo que ta nos : do sql   "=> array"
         }
 
-        public function delete(){
-            echo "delete";
+        public function delete($id){ //nao sofre sql injection devido ao : do id (:ID) e do execute.
+            $db = new Database;
+            $con = $db->connect();
+
+            $sql = "delete  from user where id = :id";
+            $stmt = $con -> prepare($sql); //nao deixa fazer injection, ele pré-compila;
+            $result = $stmt -> execute(['id' => $id]); //id do banco de dados recebe o id do nosso código;
+
+            return $result;
         }
 
         public function update(){
@@ -26,7 +33,7 @@
             $db = new Database();
             $con = $db->connect();
 
-            $sql = "SELECT id, name, email, address FROM user"; //'limit VALUE of set VALUE', é o máximo de páginas da tabela, também é preciso fazer nos outros MVC 
+            $sql = "select id, name, email, address from user"; //'limit VALUE of set VALUE', é o máximo de páginas da tabela, também é preciso fazer nos outros MVC 
             $stmt = $con -> prepare($sql);
             $result = $stmt -> execute();
 

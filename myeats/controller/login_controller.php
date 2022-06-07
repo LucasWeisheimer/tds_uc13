@@ -29,7 +29,7 @@
             echo "usuario/senha inválido";
         }
 
-    } 
+    }
     else if($acao == "logout"){
         unset($_SESSION['logado']);
         header("Location: ../view/login_view.php");

@@ -1,8 +1,14 @@
-<?php
-//framework laravel, um ótimo framework para php
-
-
+<?php       //framework laravel, um ótimo framework para php
+    
     require_once "../controller/user_controller.php";
+
+    if(isset($_GET["msg"])){//se existi a msg....
+        $msg = $_GET['msg'];
+        echo "<script type='text/javascript'>";
+        echo "alert('".$msg."')";
+        echo "</script>";
+    }
+
 
 ?> 
 
@@ -12,6 +18,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        function deletar(id){
+           if(confirm("Tem certeza que deseja remover esse registro?")){
+               url = "http://localhost:8080/myeats/controller/user_controller.php?acao=deletar&id="+id;
+               window.location = url;
+           }
+        }
+    </script>
     <title>User list view</title>
 </head>
 <body>
@@ -32,7 +46,7 @@
                 echo "<td>" . $item['name'] . "</td>";
                 echo "<td>" . $item['email'] . "</td>";
                 echo "<td>" . $item['address'] . "</td>";
-                echo "<td> <a href='#' onclick = delete(". $item['id'] .")>x</a> </td>";
+                echo "<td> <a href='#' onclick=deletar(". $item['id'] .")>x</a> </td>";
                 echo "</tr>";
             }
         
