@@ -25,10 +25,17 @@
             return $result;
         }
 
-        public function update(){
-            echo "update";
-        }
+        public function update($id, $nome, $email, $endereco){
 
+            $db = new Database;
+            $con = $db->connect();
+
+
+
+            $sql = "UPDATE  user set name = :name, email = :email,  address = :address WHERE id = :id";
+            $stmt = $con -> prepare($sql); 
+            $result = $stmt -> execute([':name' => $nome, ':email' => $email, ':address' => $endereco, 'id' => $id  ]); 
+        }
         public function findall(){
             $db = new Database();
             $con = $db->connect();
@@ -36,6 +43,17 @@
             $sql = "select id, name, email, address from user"; //'limit VALUE of set VALUE', é o máximo de páginas da tabela, também é preciso fazer nos outros MVC 
             $stmt = $con -> prepare($sql);
             $result = $stmt -> execute();
+
+            return $stmt -> fetchAll();
+        }
+
+        public function findById($id){
+            $db = new Database();
+            $con = $db->connect();
+
+            $sql = "select id, name, email, address from user where id = :id";
+            $stmt = $con -> prepare($sql);
+            $result = $stmt -> execute(['id' => $id]); //=> é um array associativo / exemplo /$dados['id'] = 10 / ou / $dados = array('id' => 10)/ ou / $dados = ['id'=>10];
 
             return $stmt -> fetchAll();
         }

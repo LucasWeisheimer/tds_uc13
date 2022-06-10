@@ -2,12 +2,6 @@
     
     require_once "../controller/user_controller.php";
 
-    if(isset($_GET["msg"])){//se existi a msg....
-        $msg = $_GET['msg'];
-        echo "<script type='text/javascript'>";
-        echo "alert('".$msg."')";
-        echo "</script>";
-    }
 
 
 ?> 
@@ -18,12 +12,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/js/jquery-3.6.0.min (1).js"></script>
     <script type="text/javascript">
-        function deletar(id){
-           if(confirm("Tem certeza que deseja remover esse registro?")){
-               url = "http://localhost:8080/myeats/controller/user_controller.php?acao=deletar&id="+id;
-               window.location = url;
-           }
+        $(document).ready(function(){ //só vai rodar quando todos os componentes(site) for carregado na tela
+            console.log("document loaded");
+        })
+    </script>
+
+    <script type="text/javascript">
+        function deletar(id){ //id tem o conteudo da funcao deletar lá em baixo
+            $.ajax({
+                data: {id:id, acao: 'deletar'}, // 1 id é o nome que vai chegar do outro lado via ajax, 2 id é o valor do id da funcao(id:1)
+                url: "../controller/user_controller.php",
+                dataType:"json"
+            })
+            .done(function(data){
+                alert(data.msg);
+                //caso eu queira fazer um alert bonitinho
+                /*if(data.code == 0){
+                    alert_bonito
+                }
+                else {
+                    alert_vermnelho()
+                }*/
+            })
         }
     </script>
     <title>User list view</title>
@@ -42,7 +54,7 @@
         <?php
             foreach($dados as $item){
                 echo "<tr>";
-                echo "<td>". $item['id'] . "</td>"; //[precisa ser o mesmo nome da coluna lá do banco];
+                echo "<td><a href='user_edit_view.php?id=". $item['id']. "'>".$item['id']."</a></td>";//[precisa ser o mesmo nome da coluna lá do banco];
                 echo "<td>" . $item['name'] . "</td>";
                 echo "<td>" . $item['email'] . "</td>";
                 echo "<td>" . $item['address'] . "</td>";

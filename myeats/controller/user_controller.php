@@ -53,13 +53,26 @@
         $result = $model -> delete($id);
 
         if($result == 1){
-            $msg = "Usuario deletado com sucesso!";
+            $data['msg'] = "Usuario deletado com sucesso!";
+            $data['code'] = 1; // vai informar se é sucesso
         }
-        else {
-            $msg = "Erro ao deletar usuario!";
+        else { //abaixao são arrays
+            $data['msg'] = "Erro ao deletar usuario!";
+            $data['code'] = 0; // vai informar se deu erro
         }
 
-        header("Location: http://localhost:8080/myeats/view/user_list_view.php?msg=".$msg);//Te joga para a tela de lista, o $msg vai ser uma variavel que vai junto
+        echo json_encode($data);
+
+    }
+    else if($acao == "update"){
+
+        $model = new UserModel();
+        $id = $_POST['id'];
+        $nome = $_POST['nome'];
+        $endereco = $_POST['endereco'];
+        $email = $_POST['email'];
+
+        $result = $model -> update($id, $nome, $email, $endereco);
 
     }
 
