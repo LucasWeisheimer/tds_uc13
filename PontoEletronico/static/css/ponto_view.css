@@ -1,0 +1,81 @@
+body{
+    color: white;
+}
+
+.fundo-principal{
+    background-image: linear-gradient(180deg, #320d58, #0eb2ad, white);
+    height: 100vh;
+    
+}
+
+
+.container{
+    padding-top: 10rem;
+    padding-right: 20rem;
+    padding-left: 20rem;
+    color: white;
+
+}
+.form-control::placeholder{
+    color: white;
+    opacity: .9;
+}
+.form-group .matricula{
+    color: white;
+}
+.form-group .datahora{
+    color: white;
+}
+
+.form-group .tipo{
+    color: white;
+}
+
+
+
+.matricula{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.2px solid rgba(255, 255, 255, .6);
+    border-radius: 0%;
+    
+}
+.datahora{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.2px solid rgba(255, 255, 255, .6);
+    border-radius: 0%;
+}
+.tipo{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.2px solid rgba(255, 255, 255, .6);
+    border-radius: 0%;
+
+}
+
+input[type="text"]:disabled {
+    background-color: transparent;
+  }
+
+
+.matricula:focus{
+    background-color: transparent;
+    color: white;
+}
+.datahora:focus{
+    background-color: transparent;
+}
+.tipo:focus{
+    background-color: transparent;
+    color: white;
+}
+
+.btn{
+    margin-top: 2rem;
+}
+
+#tipo{
+    color: white !important;
+
+}
